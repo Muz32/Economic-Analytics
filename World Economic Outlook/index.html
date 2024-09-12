@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economic Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Economic Outlook</h1>
+        <div class="controls">
+            <label for="dataType">Select Data Type:</label>
+            <select id="dataType">
+                <option value="Real_GDP_growth">Real GDP Growth</option>
+                <option value="Inflation_rate">Inflation Rate</option>
+                <option value="Unemployment_rate">Unemployment Rate</option>
+                <option value="General_government_gross_debt">Government Gross Debt</option>
+            </select>
+
+            <label for="yearSlider">Select Year:</label>
+            <input type="range" id="yearSlider" min="2015" max="2029" value="2023" step="1">
+            <span id="selectedYear">2023</span>
+
+            <div class="chart-type-container">
+                <label for="chartType">Select Chart Type:</label>
+                <select id="chartType">
+                    <option value="radial">Radial Column Chart</option>
+                    <option value="bubble">Bubble Chart</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="chartContainer">
+            <!-- Bar chart on the left -->
+            <div id="barChart" class="chart-half"></div>
+
+            <!-- Right side with chart type dropdown and chart -->
+            <div id="rightChart" class="chart-half"></div>
+        </div>
+    </div>
+
+    <!-- Load Plotly and SQL.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.5.0/sql-wasm.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

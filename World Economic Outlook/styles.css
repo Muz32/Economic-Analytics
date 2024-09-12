@@ -1,0 +1,41 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.controls label {
+  margin-right: 10px;
+}
+
+.controls select, .controls input[type="range"] {
+  margin-right: 20px;
+}
+
+.chart-type-container {
+  margin-left: 550px; /* Adjust this value to move the dropdown to the right */
+}
+
+#chartContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh; /* Ensure charts take full screen height */
+}
+
+.chart-half {
+  width: 51%;
+  height: 80vh; /* Occupy 80% of the viewport height */
+}
