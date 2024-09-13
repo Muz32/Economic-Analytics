@@ -1,6 +1,6 @@
 // Load SQL.js and initialize the SQLite database
 initSqlJs({
-    locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.5.0/sql-wasm.wasm`
+    locateFile: file => 'https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.5.0/sql-wasm.wasm'
 }).then(function (SQL) {
     let db;
 
@@ -54,6 +54,7 @@ initSqlJs({
 
             drawBarChart(countries, values);
             drawRightChart(countries, values);
+            drawChoroplethMap(countries, values);  // Draw the choropleth map
         }
     }
 
@@ -134,5 +135,43 @@ initSqlJs({
         };
 
         Plotly.newPlot('rightChart', [trace], layout);
+    }
+
+    // Draw Choropleth Map with Plotly
+    function drawChoroplethMap(countries, values) {
+        const data = [{
+            type: 'choropleth',
+            locationmode: 'country names',
+            locations: countries,
+            z: values,
+            text: countries,
+            colorscale: 'Viridis',
+            autocolorscale: false,
+            reversescale: false,
+            marker: {
+                line: {
+                    color: 'rgb(180,180,180)',
+                    width: 0.5
+                }
+            },
+            colorbar: {
+                autotick: false,
+                tickprefix: '',
+                title: 'Value'
+            }
+        }];
+
+        const layout = {
+            title: `${dataTypeSelect.options[dataTypeSelect.selectedIndex].text} ${yearSlider.value}`,
+            geo: {
+                showframe: false,
+                showcoastlines: false,
+                projection: {
+                    type: 'equirectangular'
+                }
+            }
+        };
+
+        Plotly.newPlot('map', data, layout);
     }
 });
