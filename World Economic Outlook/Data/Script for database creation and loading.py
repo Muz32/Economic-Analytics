@@ -20,12 +20,12 @@ xls_files = [
 ]
 
 new_table_names = [
-    'Current_account_balance',
+    'Current_account_balance_GDP',
     'Current_account_balance',
     'GDP_at_current_prices',
-    'GDP_per capita_current_prices',
-    'General_government_gross_debt',
-    'General_Government_net_lending_and_borrowing',
+    'GDP_per_capita_current_prices',
+    'General_government_gross_debt_GDP',
+    'General_Government_net_lending_and_borrowing_GDP',
     'Inflation_rate',
     'Population',
     'Real_GDP_growth',

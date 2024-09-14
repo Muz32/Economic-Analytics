@@ -17,7 +17,7 @@
                 <option value="Real_GDP_growth">Real GDP Growth</option>
                 <option value="Inflation_rate">Inflation Rate</option>
                 <option value="Unemployment_rate">Unemployment Rate</option>
-                <option value="General_government_gross_debt">Government Gross Debt</option>
+                <option value="General_government_gross_debt">Government Gross Debt (% of GDP)</option>
             </select>
 
             <label for="yearSlider">Select Year:</label>
@@ -29,6 +29,9 @@
                 <select id="chartType">
                     <option value="radial">Radial Column Chart</option>
                     <option value="bubble">Bubble Chart</option>
+                    <option value="line">Line Chart</option>
+                    <option value="stackedBar">Stacked Bar Chart</option>
+                    <option value="stackedArea">Stacked Area Chart</option>
                 </select>
             </div>
         </div>
@@ -39,11 +42,38 @@
             <div id="barChart" class="chart-half"></div>
             <div id="rightChart" class="chart-half"></div>
         </div>
+
+        <h2>Time Series Plots of Economic Outlook</h2>
+        <div id="timeSeriesControls" class="controls draggable">
+            <label for="timeSeriesDataType">Select Time Series Data Type:</label>
+            <select id="timeSeriesDataType">
+                <option value="Current_account_balance_GDP">Current Account Balance (% of GDP)</option>
+                <option value="Current_account_balance">Current Account Balance</option>
+                <option value="GDP_at_current_prices">GDP at Current Prices</option>
+                <option value="GDP_per_capita_current_prices">GDP per Capita (Current Prices)</option>
+                <option value="Inflation_rate">Inflation Rate</option>
+                <option value="Population">Population</option>
+                <option value="Real_GDP_growth">Real GDP Growth</option>
+                <option value="Unemployment_rate">Unemployment Rate</option>
+            </select>
+
+            <label for="timeSeriesChartType">Select Chart Type:</label>
+            <select id="timeSeriesChartType">
+                <option value="streamGraph">Stream Graph</option>
+                <option value="spline">Spline Chart</option>
+                <option value="stackedArea">Stacked Area Chart</option>
+            </select>
+        </div>
+
+        <div id="timeSeriesChart" style="width: 960px; height: 500px;"></div>
     </div>
 
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/streamgraph.js"></script> <!-- For stream graph -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.5.0/sql-wasm.js"></script>
-    <script src="dashboard.js"></script>
+    <script src="dashboard1.js"></script>
+    <script src="dashboard2.js"></script> <!-- Include the new JavaScript file -->
     <script src="draggable.js"></script>
 </body>
 </html>
