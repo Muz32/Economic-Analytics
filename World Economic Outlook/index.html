@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Economic Outlook</h1>
+        <h2>Economic Outlook</h2>
         <div class="controls draggable">
             <button id="lockButton"><i class="fas fa-lock"></i></button>
             <label for="dataType">Select Data Type:</label>
@@ -17,7 +17,7 @@
                 <option value="Real_GDP_growth">Real GDP Growth</option>
                 <option value="Inflation_rate">Inflation Rate</option>
                 <option value="Unemployment_rate">Unemployment Rate</option>
-                <option value="General_government_gross_debt">Government Gross Debt (% of GDP)</option>
+                <option value="General_government_gross_debt_GDP">Government Gross Debt (% of GDP)</option>
             </select>
 
             <label for="yearSlider">Select Year:</label>
@@ -29,9 +29,8 @@
                 <select id="chartType">
                     <option value="radial">Radial Column Chart</option>
                     <option value="bubble">Bubble Chart</option>
-                    <option value="line">Line Chart</option>
-                    <option value="stackedBar">Stacked Bar Chart</option>
-                    <option value="stackedArea">Stacked Area Chart</option>
+                                    
+                   
                 </select>
             </div>
         </div>
@@ -64,8 +63,7 @@
                 <option value="stackedArea">Stacked Area Chart</option>
             </select>
         </div>
-
-        <div id="timeSeriesChart" style="width: 960px; height: 500px;"></div>
+        <div id="timeSeriesChart"></div>
     </div>
 
     <script src="https://code.highcharts.com/highcharts.js"></script>
