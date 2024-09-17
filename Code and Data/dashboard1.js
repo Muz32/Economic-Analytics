@@ -73,7 +73,7 @@ initSqlJs({
         const layout = {
             title: `${dataTypeSelect.options[dataTypeSelect.selectedIndex].text} ${yearSlider.value}`,
             xaxis: { title: '' },
-            yaxis: { title: 'Percent' }
+            yaxis: { title: null }
         };
 
         Plotly.newPlot('barChart', [trace], layout);
@@ -90,54 +90,62 @@ initSqlJs({
         }
     }
 
-    // Bubble Chart with Plotly
-    function drawBubbleChart(countries, values) {
-        const trace = {
-            x: countries,
-            y: values,
-            mode: 'markers',
-            marker: {
-                size: values.map(v => v * 7),  // Making the size larger based on the value
-                color: values,
-                colorscale: 'Viridis'
+// Bubble Chart with Plotly
+function drawBubbleChart(countries, values) {
+    // Normalize the values to a range of 0 to 1
+    const minVal = Math.min(...values);
+    const maxVal = Math.max(...values);
+    const normalizedValues = values.map(v => (v - minVal) / (maxVal - minVal));
+
+    const trace = {
+        x: countries,
+        y: values,
+        mode: 'markers',
+        marker: {
+            size: normalizedValues.map(v => (v + 0.5) * 20),  
+            color: values,
+            colorscale: 'Viridis'
+        }
+    };
+
+    const layout = {
+        title: `${dataTypeSelect.options[dataTypeSelect.selectedIndex].text} ${yearSlider.value}`,
+        xaxis: { title: null },
+        yaxis: { title: null }
+    };
+
+    Plotly.newPlot('rightChart', [trace], layout);
+}
+
+
+
+// Radial Column Chart with Plotly
+function drawRadialColumnChart(countries, values) {
+    const trace = {
+        type: 'barpolar',
+        r: values,
+        theta: countries,
+        marker: {
+            color: values,
+            colorscale: 'Viridis'
+        },
+        base: 0,  // Set the base to 0 to handle negative values
+        hovertemplate: '%{theta}: %{r}<extra></extra>'  // Custom hover template
+    };
+
+    const layout = {
+        title: `${dataTypeSelect.options[dataTypeSelect.selectedIndex].text} ${yearSlider.value}`,
+        polar: {
+            radialaxis: {
+                visible: true,
+                range: [Math.min(...values), Math.max(...values)]  // Adjust range to include negative values
             }
-        };
+        }
+    };
 
-        const layout = {
-            title: `${dataTypeSelect.options[dataTypeSelect.selectedIndex].text} ${yearSlider.value}`,
-            xaxis: { title: '' },
-            yaxis: { title: 'Percent' }
-        };
+    Plotly.newPlot('rightChart', [trace], layout);
+}
 
-        Plotly.newPlot('rightChart', [trace], layout);
-    }
-
-    // Radial Column Chart with Plotly
-    function drawRadialColumnChart(countries, values) {
-        const trace = {
-            type: 'barpolar',
-            r: values,
-            theta: countries,
-            marker: {
-                color: values,
-                colorscale: 'Viridis'
-            },
-            hovertemplate: '%{theta}: %{r}<extra></extra>'  // Custom hover template
-            
-        };
-
-        const layout = {
-            title: `${dataTypeSelect.options[dataTypeSelect.selectedIndex].text} ${yearSlider.value}`,
-            polar: {
-                radialaxis: {
-                    visible: true,
-                    range: [0, Math.max(...values)]
-                }
-            }
-        };
-
-        Plotly.newPlot('rightChart', [trace], layout);
-    }
 
     // Draw Choropleth Map with Plotly
 
@@ -201,7 +209,7 @@ initSqlJs({
             hoverinfo: 'location'  // Only show country name
         };
     
-        // Overlay map with queried countries in Viridis color scale
+        // Overlay map with queried countries 
         const overlayMap = {
             type: 'choropleth',
             locationmode: 'country names',

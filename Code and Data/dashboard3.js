@@ -19,10 +19,10 @@ initSqlJs({
     const labels = {
         'GDP_per_capita_current_prices': 'GDP per capita (USD)',
         'General_government_gross_debt_GDP': 'Gov Gross debt position (% of GDP)',
-        'Inflation_rate': 'Inflation rate',
-        'Population': 'Population',
-        'Real_GDP_growth': 'Real GDP growth',
-        'Unemployment_rate': 'Unemployment rate',
+        'Inflation_rate': 'Inflation rate (%)',
+        'Population': 'Population (M)',
+        'Real_GDP_growth': 'Real GDP growth (%)',
+        'Unemployment_rate': 'Unemployment rate (%)',
         'Gov_Expenditure_GDP': 'Gov Expenditure (% of GDP)',
         'Gov_Revenue_GDP': 'Gov Revenue (% of GDP)',
         'Gov_Gross_debt_position_GDP': 'Gov Gross debt position (% of GDP)'
@@ -56,7 +56,7 @@ initSqlJs({
             name: labels[variable],
             data: getData(variable, country),
             type: 'line',
-            zIndex: 2 // Ensure lines appear over bars
+            zIndex: 2 
         }));
     
         const rightSeries = selectedDataset.right.map(variable => ({
@@ -64,7 +64,7 @@ initSqlJs({
             data: getData(variable, country),
             yAxis: 1,
             type: chartType === 'line+bar' ? 'column' : 'line',
-            zIndex: chartType === 'line+bar' ? 1 : 2 // Ensure lines appear over bars
+            zIndex: chartType === 'line+bar' ? 1 : 2 
         }));
     
         renderChart('combinationChart', leftSeries, rightSeries, datasetType);

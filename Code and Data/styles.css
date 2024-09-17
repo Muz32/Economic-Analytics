@@ -14,15 +14,15 @@ body {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  z-index: 10; /* Ensure the controls are on top */
-  position: relative; /* Make sure the position is relative for z-index to work */
-  background-color: white; /* Optional: Add a background color to make it more visible */
-  padding: 10px; /* Optional: Add some padding for better appearance */
-  border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+  z-index: 10;
+  position: relative;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
 }
 
 #lockButton {
-  margin-right: 20px; /* Add space between the lock button and the next element */
+  margin-right: 20px;
 }
 
 .controls label {
@@ -34,55 +34,85 @@ body {
 }
 
 .chart-type-container {
-  margin-left: 400px; /* Adjust this value to move the dropdown to the right */
+  margin-left: 400px;
 }
 
 #chartContainer {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 100vh; /* Ensure charts take full screen height */
+  height: 80vh; /* Adjusted height */
 }
 
 .chart-half {
-  width: 51%;
-  height: 80vh; /* Occupy 80% of the viewport height */
+  width: 50%; /* Adjusted width */
+  height: 100%; /* Adjusted height */
 }
 
 .map-container {
   width: 100%;
-  height: 80vh; /* Adjust height as needed */
-  margin-top: 50px;
+  height: 70vh; /* Adjusted height */
+  margin-top: 20px; /* Reduced margin */
 }
 
 .chart-full {
   width: 100%;
-  height: 80vh; /* Adjust height as needed */
-  margin-top: 50px;
+  height: 70vh; /* Adjusted height */
+  margin-top: 20px; /* Reduced margin */
 }
 
-
-/* Adjust the layout to avoid overlap and ensure each section appears below the other */
 .container {
   display: flex;
-  flex-direction: column; /* Ensure sections stack vertically */
+  flex-direction: column;
 }
 
-/* Time series chart styling remains unchanged */
 #timeSeriesChart {
   width: 100%;
-  height: 700px; /* Ensure this height matches the chart style */
+  height: 80vh; /* Adjusted height */
 }
-
-/* Combination chart styling */
 
 #combinationChart {
   width: 100%;
-  height: 700px;
-  margin-top: 20px;
+  height: 80vh; /* Adjusted height */
+  margin-top: 20px; /* Reduced margin */
 }
 
 #chartTypeSlider {
-  width: 50px; /* Shorten the slider length */
+  width: 50px;
   margin-left: 10px;
 }
+
+#sunburstChart {
+  width: 100%;
+  height: 70vh; /* Adjusted height */
+  margin: 0 auto;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider-labels span {
+  flex: 1;
+  text-align: center;
+}
+
+.slider {
+  flex: 2;
+  margin: 0 10px;
+}
+
+h2 {
+  margin-top: 20px; /* Consistent margin for headings */
+  margin-bottom: 10px; /* Consistent margin for headings */
+}
+
+h1 {
+  text-align: center;
+  padding: 20px;
+  border-bottom: 1px solid #333; /* Thinner line below the title */
+}
+
+
