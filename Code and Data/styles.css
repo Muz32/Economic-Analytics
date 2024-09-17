@@ -61,7 +61,28 @@ body {
   margin-top: 50px;
 }
 
+
+/* Adjust the layout to avoid overlap and ensure each section appears below the other */
+.container {
+  display: flex;
+  flex-direction: column; /* Ensure sections stack vertically */
+}
+
+/* Time series chart styling remains unchanged */
 #timeSeriesChart {
   width: 100%;
-  height: 700px; /* Adjust height as needed */
+  height: 700px; /* Ensure this height matches the chart style */
+}
+
+/* Combination chart styling */
+
+#combinationChart {
+  width: 100%;
+  height: 700px;
+  margin-top: 20px;
+}
+
+#chartTypeSlider {
+  width: 50px; /* Shorten the slider length */
+  margin-left: 10px;
 }

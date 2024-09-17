@@ -1,4 +1,3 @@
-// Load SQL.js and initialize the SQLite database
 initSqlJs({
     locateFile: file => 'https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.5.0/sql-wasm.wasm'
 }).then(function (SQL) {
@@ -33,9 +32,7 @@ initSqlJs({
         // Query the database for time series data
         const countries = [
             'Australia', 'China', 'Japan', 'Korea (South)', 'Taiwan', 'India', 'United States',
-            'Singapore', 'Vietnam', 'New Zealand', 'Malaysia', 'Indonesia', 'Thailand',
-            'Hong Kong', 'Philippines', 'United Kingdom', 'United Arab Emirates', 'Germany', 
-            'Canada', 'France', 'Brazil'
+            'Singapore', 'New Zealand', 'Thailand', 'United Kingdom', 'Germany'
         ];
 
         const query = `SELECT Country, "2015", "2016", "2017", "2018", "2019", "2020", "2021", 
@@ -63,8 +60,7 @@ initSqlJs({
 
         if (chartType === 'streamGraph') {
             drawStreamGraph(data);
-        } else if (chartType === 'stackedArea') {
-            drawStackedAreaChart(data);
+       
         } else if (chartType === 'spline') {
             drawSplineChart(data);
         }
@@ -76,6 +72,9 @@ initSqlJs({
 
     // Function to draw stream graph using Highcharts
     function drawStreamGraph(data) {
+        const chartTitle = timeSeriesDataTypeSelect.options[timeSeriesDataTypeSelect.selectedIndex].text;
+
+
         Highcharts.chart('timeSeriesChart', {
             chart: {
                 type: 'streamgraph',
@@ -83,64 +82,37 @@ initSqlJs({
             },
             colors: viridisColors,
             title: {
-                text: 'Stream Graph'
+                text: chartTitle
             },
             series: data.map((countryData, i) => ({
                 name: countryData.country,
                 data: countryData.values.map(v => v.value),
                 color: viridisColors[i % viridisColors.length]
             })),
+            
             tooltip: {
-                shared: true,
+                formatter: function () {
+                    
+                    return `<b>${this.series.name}</b><br/>Year: ${this.x}<br/>Value: ${this.y.toFixed(2)}`;
+                },
+                shared: false,
                 valueDecimals: 2
-            },
-            xAxis: {
-                categories: data[0].values.map(v => v.year),
-                title: { text: 'Year' }
-            }
-        });
-    }
 
-    // Function to draw stacked area chart using Highcharts
-    function drawStackedAreaChart(data) {
-        Highcharts.chart('timeSeriesChart', {
-            chart: {
-                type: 'area',
-                backgroundColor: 'white'
-            },
-            colors: viridisColors,
-            title: {
-                text: 'Stacked Area Chart'
-            },
-            series: data.map((countryData, i) => ({
-                name: countryData.country,
-                data: countryData.values.map(v => v.value),
-                color: viridisColors[i % viridisColors.length]
-            })),
-            tooltip: {
-                shared: true,
-                valueDecimals: 2
+            
             },
             xAxis: {
                 categories: data[0].values.map(v => v.year),
                 title: { text: 'Year' }
             },
-            plotOptions: {
-                area: {
-                    stacking: 'normal',
-                    lineColor: '#666666',
-                    lineWidth: 1,
-                    marker: {
-                        lineWidth: 1,
-                        lineColor: '#666666'
-                    }
-                }
+            yAxis: {
+                visible: false
             }
         });
     }
 
-    // Function to draw spline chart using Highcharts
     function drawSplineChart(data) {
+        const chartTitle = timeSeriesDataTypeSelect.options[timeSeriesDataTypeSelect.selectedIndex].text;
+    
         Highcharts.chart('timeSeriesChart', {
             chart: {
                 type: 'spline',
@@ -148,25 +120,41 @@ initSqlJs({
             },
             colors: viridisColors,
             title: {
-                text: 'Spline Chart'
+                text: chartTitle
             },
             series: data.map((countryData, i) => ({
                 name: countryData.country,
                 data: countryData.values.map(v => v.value),
-                color: viridisColors[i % viridisColors.length]
+                color: viridisColors[i % viridisColors.length],
+                marker: {
+                    enabled: false  // Disable marker points for each data point
+                }
             })),
             tooltip: {
-                shared: true,
+                formatter: function () {
+                    return `<b>${this.series.name}</b><br/>Year: ${this.x}<br/>Value: ${this.y.toFixed(2)}`;
+                },
+                shared: false,
                 valueDecimals: 2
             },
             xAxis: {
                 categories: data[0].values.map(v => v.year),
                 title: { text: 'Year' }
+            },
+            yAxis: {
+                visible: true,  // Ensure yAxis is visible with the 0 line
+                plotLines: [{  // Add a dark horizontal line at the 0 mark
+                    value: 0,
+                    color: 'black',
+                    width: 2,
+                    zIndex: 5
+                }],
+                title: { text: 'Value' }  // Optional, can be removed if not needed
             }
         });
     }
-
+    
+    
     // Set the default chart type to 'streamGraph' on page load
     timeSeriesChartTypeSelect.value = 'streamGraph';
-    updateVisualizations();  // Initial call to display stream graph on page load
 });

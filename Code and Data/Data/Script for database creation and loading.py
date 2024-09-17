@@ -16,7 +16,10 @@ xls_files = [
     'Inflation rate, end of period consumer prices (Annual percent change)',
     'Population (millions of people)',
     'Real GDP Growth (%)',
-    'Unemployment rate (%)'
+    'Unemployment rate (%)',
+    'Gov Expenditure (% of GDP)',
+    'Gov Revenue (% of GDP)',
+    'Gov Gross debt position (% of GDP)'
 ]
 
 new_table_names = [
@@ -29,7 +32,10 @@ new_table_names = [
     'Inflation_rate',
     'Population',
     'Real_GDP_growth',
-    'Unemployment_rate'
+    'Unemployment_rate',
+    'Gov_Expenditure_GDP',
+    'Gov_Revenue_GDP',
+    'Gov_Gross_debt_position_GDP'
 ]
 
 # Connect to SQLite database

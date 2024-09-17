@@ -29,8 +29,6 @@
                 <select id="chartType">
                     <option value="radial">Radial Column Chart</option>
                     <option value="bubble">Bubble Chart</option>
-                                    
-                   
                 </select>
             </div>
         </div>
@@ -60,18 +58,51 @@
             <select id="timeSeriesChartType">
                 <option value="streamGraph">Stream Graph</option>
                 <option value="spline">Spline Chart</option>
-                <option value="stackedArea">Stacked Area Chart</option>
             </select>
         </div>
         <div id="timeSeriesChart"></div>
     </div>
 
+    <h2>Combination Charts</h2>
+    <div class="controls draggable">
+        <label for="countrySelect">Select Country:</label>
+        <select id="countrySelect">
+            <option value="Australia">Australia</option>
+            <option value="China">China</option>
+            <option value="Japan">Japan</option>
+            <option value="Korea (South)">Korea (South)</option>
+            <option value="India">India</option>
+            <option value="United States">United States</option>
+            <option value="Singapore">Singapore</option>
+            <option value="New Zealand">New Zealand</option>
+            <option value="Thailand">Thailand</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="Germany">Germany</option>
+        </select>
+        
+        <label for="combinationDataType">Select Data Type:</label>
+        <select id="combinationDataType">
+            <option value= "Real GDP growth, Inflation and Unemployment rate">Economic Indicators</option>
+            <option value="Government Expenditure, Revenue and Debt">Fiscal Position</option>
+            <option value="Population and GDP per capita">Population and GDP per capita</option>
+        </select>
+        
+        <div class="chart-type-container">
+            <label for="chartTypeSlider">Select Chart Type:</label>
+            <input type="range" id="chartTypeSlider" min="0" max="1" step="1" value="0" class="slider">
+            <span id="chartTypeLabel">Line</span>
+        </div>
+    </div>
+        
+    <div id="combinationChart"></div>
+    
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/streamgraph.js"></script> <!-- For stream graph -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.5.0/sql-wasm.js"></script>
     <script src="dashboard1.js"></script>
-    <script src="dashboard2.js"></script> <!-- Include the new JavaScript file -->
+    <script src="dashboard2.js"></script> 
+    <script src="dashboard3.js"></script> 
     <script src="draggable.js"></script>
 </body>
 </html>
