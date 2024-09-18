@@ -1,4 +1,7 @@
 # Economic Analysis of Australia's Major Trading Partners
+
+![Web Page Preview](./images/map%20of%20trading%20partners.png)
+
 # Project Overview
 
 This project aims to analyse key economic trends of Australia and its major trading partners through a series of interactive dashboards. These dashboards present complex economic data in a meaningful and visually appealing manner using various charting methods. The platform provides an engaging and immersive experience, allowing users to gain valuable insights from the data. Users have control over how they visualise the data, rather than being limited to pre-plotted charts.
@@ -111,6 +114,8 @@ The data for this project is sourced from the International Monetary Fund (IMF):
 ## Folders and Files
 
 ### Economic Analytics (Root Directory)
+- **images**
+   - `map of trading partners`
 - **docs**
   - `index.html`
   - `styles.css`
