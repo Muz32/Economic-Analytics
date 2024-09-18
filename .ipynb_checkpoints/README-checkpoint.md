@@ -41,6 +41,15 @@ The project analyses data from Australia's major trading partners, including:
 - **JavaScript Libraries**: Utilises Plotly.js and Highcharts.js for creating robust and interactive charts.
 - **SQLite**: Employs the sql.js library to run SQL queries directly in the browser for efficient data handling.
 
+## GitHub Deployment
+
+The project is deployed on GitHub Pages, making it easy for you to start interacting with the dashboard right away. This deployment ensures that the latest version of the project is always accessible online, providing a seamless and interactive experience.
+
+To explore the Economic Analytics Interactive Dashboard, please click the following link: [Economic Analytics Interactive Dashboard](https://muz32.github.io/Economic-Analytics)
+
+Feel free to navigate through the various sections and visualisations to gain insights into the economic trends of Australia and its major trading partners.
+
+
 ## Interacting with the Project
 
 The dashboard is divided into four different sections, each showcasing data in various visual formats.
@@ -95,7 +104,32 @@ The sunburst chart is highly interactive and summarises GDP at current prices (i
 1. **Selecting Data**: Click on a particular country, then click on a chosen year to unveil the data.
 2. **Navigating Hierarchies**: Click on the middle circle to move back a hierarchy. You can select a different year or click the middle circle again to navigate back to country selections.
 
-
 ## Data Source
 
 The data for this project is sourced from the International Monetary Fund (IMF): [IMF Data Mapper](https://www.imf.org/external/datamapper/datasets)
+
+## Folders and Files
+
+### Economic Analytics (Root Directory)
+- **docs**
+  - `index.html`
+  - `styles.css`
+  - `dashboard1.js`
+  - `dashboard2.js`
+  - `dashboard3.js`
+  - `dashboard4.js`
+  - `draggable.js`
+  - `weo.sqlite`
+  - **data**
+    - `Unemployment rate (%).xls`
+    - `Current account balance (% of GDP).xls`
+    - `Current account balance (USD Billions).xls`
+    - `GDP at current prices (USD Billions).xls`
+    - `GDP per capita current prices (USD).xls`
+    - `General government gross debt (% of GDP).xls`
+    - `General Government net lending and borrowing (% of GDP).xls`
+    - `Inflation rate, end of period consumer prices (Annual percent change).xls`
+    - `Population (millions of people).xls`
+    - `Real GDP Growth (%).xls`
+    - `Script for database creation and loading.py`
+
