@@ -34,7 +34,7 @@ body {
 }
 
 .chart-type-container {
-  margin-left: 400px;
+  margin-left: 350px;
 }
 
 #chartContainer {
@@ -51,7 +51,7 @@ body {
 
 .map-container {
   width: 100%;
-  height: 70vh; /* Adjusted height */
+  height: 80vh; /* Adjusted height */
   margin-top: 20px; /* Reduced margin */
 }
 

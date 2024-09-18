@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const draggable = document.querySelector('.draggable');
     const lockButton = document.getElementById('lockButton');
     let isDragging = false;
-    let isLocked = false;
+    let isLocked = true;
     let offsetX, offsetY;
 
     lockButton.addEventListener('click', () => {
