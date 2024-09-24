@@ -1,4 +1,4 @@
-# Economic Analysis of Australia's Major Trading Partners
+# Economic Analysis of Australia and its Major Trading Partners
 
 ![Web Page Preview](./images/map%20of%20trading%20partners.png)
 
