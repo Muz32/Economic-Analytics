@@ -39,10 +39,7 @@ The project analyses data from Australia's major trading partners, including:
 - United Kingdom
 - United States
 
-## Technologies Used
 
-- **JavaScript Libraries**: Utilises Plotly.js and Highcharts.js for creating robust and interactive charts.
-- **SQLite**: Employs the sql.js library to run SQL queries directly in the browser for efficient data handling.
 
 ## GitHub Deployment
 
@@ -52,6 +49,15 @@ To explore the Economic Analytics Interactive Dashboard, please click the follow
 
 Feel free to navigate through the various sections and visualisations to gain insights into the economic trends of Australia and its major trading partners.
 
+## Tools Used
+- **Python**: Converting XLS files to an SQLite database
+- **JavaScript**: For interactive elements and functionality
+- **HTML/CSS**: For structuring and styling the dashboard
+- **Bootstrap**: For responsive design and layout
+- **GitHub Pages**: For deploying the project
+- **Plotly.js**: For creating interactive visualisations
+- **Highcharts.js**: For advanced charting options
+- **SQL.js**: For client-side database management
 
 ## Interacting with the Project
 
